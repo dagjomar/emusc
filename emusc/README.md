@@ -66,8 +66,14 @@ Note that if you have a running in a Linux environment you can also cross-compil
 ### macOS
 For some reason Apple decided to not follow the C standard in their MIDI implementation. Due to this, Clang is needed for compiling MIDI support on macOS.
 
-If you are using homebrew, install qt@5. Remember to also specify the correct paths to configure, e.g. 
+If you are using homebrew, install qt@5.
 ```
+brew install qt@5
+```
+Then run cmake and specify the correct path to qt.
+Find the correct path depending on your system and how you installed QT. Here are some examples, to help you find the one on your own system.
+```
+cmake . -DCMAKE_PREFIX_PATH=/opt/homebrew/opt/qt@5
 cmake . -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt@5/5.15.6
 ```
 On macOS the default build is not a binary file, but a bundle. To install the application copy src/emusc.app to your application folder. To run EmuSC directly from the terminal:
